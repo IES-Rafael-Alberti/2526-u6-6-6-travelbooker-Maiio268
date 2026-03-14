@@ -1,9 +1,16 @@
 package presentacionUI
 
+import datos.ReservaRepositoryMemory
+import dominio.Reserva
 import dominio.ReservaDeVuelo
+import logicaAplicacion.ReservaService
 
 fun main(){
     var opcion: Int
+
+    val repository = ReservaRepositoryMemory<Reserva>()
+    val servicio = ReservaService(repository)
+
     do{
         print("=== MENÚ DE RESERVAS ===")
         println("1) Reserva de Vuelo")
@@ -34,7 +41,7 @@ fun main(){
 fun crearReservaVuelo(){
     println("Introduce la descripcion: ")
     var descripcion = readln()?:""
-    ReservaDeVuelo.creaInstancia()
+
 }
 fun crearReservaHotel(){
 
